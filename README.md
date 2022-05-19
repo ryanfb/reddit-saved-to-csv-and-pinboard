@@ -1,5 +1,5 @@
 # reddit-saved-to-csv
-Exports saved posts and comments on Reddit to a csv file.
+Exports saved posts and comments on Reddit to a csv file, and save them as bookmarks on [Pinboard](https://pinboard.in/).
 
 **Columns**: ID, Name, Subreddit, Type, URL, NoSFW
 - ID: Starts from 1 and increments for each saved Post or Comment.
@@ -21,9 +21,11 @@ Exports saved posts and comments on Reddit to a csv file.
 * You'll see below lines at the top:
 ```python
 client_id='' # Enter your client ID
-client_secret='' # Enter you client secret
-username='' # Enter Username
-password='' # Enter password
+client_secret='' # Enter your client secret
+username='' # Enter reddit username
+password='' # Enter reddit password
+pinboard_token='' # Pinboard API key e.g. username:1341235
+pinboard_tags='reddit_saved' # Tags used for Pinboard
 ```
 * Enter the necessary information into the quotation marks.
 * Save the .py file.

@@ -4,8 +4,8 @@ import praw, csv, codecs, requests
 from time import sleep
 
 client_id='' # Enter your client ID
-client_secret='' # Enter you client secret
-username='' # Enter reddit Username
+client_secret='' # Enter your client secret
+username='' # Enter reddit username
 password='' # Enter reddit password
 pinboard_token='' # Pinboard API key e.g. username:1341235
 pinboard_tags='reddit_saved' # Tags used for Pinboard
