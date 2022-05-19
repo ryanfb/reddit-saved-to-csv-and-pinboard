@@ -1,11 +1,14 @@
 #! python3
 # reddit_saved_to_csv.py - Exports your saved Posts and Comments on Reddit to a csv file.
-import praw, csv, codecs
+import praw, csv, codecs, requests
+from time import sleep
 
 client_id='' # Enter your client ID
 client_secret='' # Enter you client secret
-username='' # Enter Username
-password='' # Enter password
+username='' # Enter reddit Username
+password='' # Enter reddit password
+pinboard_token='' # Pinboard API key e.g. username:1341235
+pinboard_tags='reddit_saved' # Tags used for Pinboard
 
 reddit = praw.Reddit(client_id=client_id,
                     client_secret=client_secret,
@@ -39,8 +42,19 @@ def handle(saved_models):
             noSfw = str(model.submission.over_18)
             model_type = "#Comment"
 
-        print('Model number ' + str(count) + ' is written to csv file.')
         saved_csv_writer.writerow([str(count), title, subr_name, model_type, url, noSfw])
+        print('Model number ' + str(count) + ' is written to csv file.')
+
+        pinboard_params = {'description': title,
+                           'url': url,
+                           'tags': pinboard_tags,
+                           'auth_token': pinboard_token}
+
+        pinboard_response = requests.get('https://api.pinboard.in/v1/posts/add',
+                                         params=pinboard_params,
+                                         headers={'user-agent': 'reddit_saved_to_pinboard.py'})
+        print('Model number ' + str(count) + ' saved to pinboard with response: ' + str(pinboard_response.status_code))
+        sleep(3)
 
         count += 1
 
