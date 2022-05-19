@@ -1,4 +1,4 @@
-# reddit-saved-to-csv
+# reddit-saved-to-csv-and-pinboard
 Exports saved posts and comments on Reddit to a csv file, and save them as bookmarks on [Pinboard](https://pinboard.in/).
 
 **Columns**: ID, Name, Subreddit, Type, URL, NoSFW
