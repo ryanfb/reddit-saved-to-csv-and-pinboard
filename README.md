@@ -2,6 +2,8 @@
 
 Exports saved posts and comments on Reddit to a csv file, and saves them as bookmarks on [Pinboard](https://pinboard.in/).
 
+By default, this also saves the subreddit as a tag, and doesn't unsave posts/comments as it goes. Both behaviors can be deleted or uncommented as appropriate before running. Unsaving posts/comments is destructive but allows you to run the script multiple times and circumvent Reddit's API limits that restrict you to only downloading up to your most recent 1,000 saved items.
+
 Forked from [AlkTheOrg/reddit-saved-to-csv](https://github.com/AlkTheOrg/reddit-saved-to-csv).
 
 **Columns**: ID, Name, Subreddit, Type, URL, NoSFW
